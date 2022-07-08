@@ -51,34 +51,54 @@ function echo(str) {
     echo("hey"); // => returns "HEY ... hey ... hey"
     echo("JUMp"); // => returns "JUMP ... JUMp ... jump" */
     // Your code here
+    return str.toUpperCase()+" ... "+str+" ... "+str.toLowerCase();
 };
 
 function fizzBuzz(max) {
     /* Takes a number, max and returns an array that contains every number from
     0 to max (not inclusive) that is divisible by either 3 or 5, **but not both**. */
     // Your code here
+    //iterate from o to max
+    const ret = [];
+    for(let i = 0; i < max; i++){
+        let divByFive = false, divByThree = false;
+        if(i%3==0){
+            divByThree = true;
+        }
+        if(i%5==0){
+            divByFive = true;
+        }
+        if(divByFive != divByThree){
+            ret.push(i);
+        }
+    }
+    return ret;
 };
 
 function hello(name) {
     /* Takes in a string name and returns a string saying "Hello, " to that name. */
     // Your code here
+    return "Hello, " + name;
 };
 
 function goodbye(name) {
     /* Takes in a string name and returns a string saying "Bye, " to that name. */
     // Your code here
+    return "Bye, " + name;
 };
 
 function isFive(num) {
     /* Takes in a number, num, and returns `true` if a number is equal to 5 and
     `false` if it is not. */
     // Your code here
+    return (num%5==0);
 };
 
 function isOdd(num) {
     /* Takes in a number and returns `true` if the number is odd and returns
     `false` otherwise. Try writing this with and without `if` statements */
     // Your code here
+    return (num%2!=0);
 };
 
 function isSubString(searchString, subString) {
@@ -86,6 +106,7 @@ function isSubString(searchString, subString) {
     `true` if `subString` is a part of the`searchString`, regardless of upper
     or lower case, and `false` if otherwise. */
     // Your code here
+    return (searchString.toLowerCase().indexOf(subString.toLowerCase())>=0);
 };
 
 function aCounter(word) {
@@ -107,6 +128,13 @@ function aCounter(word) {
     return count;
     */
     // Your code here
+    let counter = 0;
+    for(let i = 0; i< word.length; i++){
+        if(word[i].toLowerCase() === 'a'){
+            counter++;
+        }
+    }
+    return counter;
 };
 
 module.exports = {
